@@ -34,7 +34,11 @@ async function issueEmailChallenge(
   accessToken: string,
   ip: string,
 ): Promise<{ tokenId: string; delivery?: string; devOtp?: string; redirectedTo?: string } | null> {
-  const base = new URL(request.url).origin;
+  const forwardedHost = request.headers.get("x-forwarded-host");
+  const forwardedProto = request.headers.get("x-forwarded-proto") ?? "https";
+  const base =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (forwardedHost ? `${forwardedProto}://${forwardedHost}` : new URL(request.url).origin);
 
   try {
     const res = await fetch(`${base}/api/auth/2fa/email/send`, {

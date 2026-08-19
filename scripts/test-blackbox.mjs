@@ -5,9 +5,9 @@
  * imports of application code — and fills the three tables chapter 4 leaves
  * open:
  *
- *   TC-AUTH-01..07   authentication module            (table 4.5)
- *   PS-01..PS-10     PropShare module                 (table 4.6)
- *   SEC-01..SEC-10   security scenarios               (table 4.10)
+ *   TC-AUTH-01..07   authentication module            (table 4.1)
+ *   PS-01..PS-10     PropShare module                 (sect. 4.1.2, fig. 4.2)
+ *   SEC-01..SEC-10   security scenarios               (table 4.5)
  *
  * Requires: seeded demo database, backend on :4000, app on :3000.
  * Run:  node scripts/test-blackbox.mjs
@@ -114,7 +114,7 @@ function heading(text) {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
- * Moduł uwierzytelniania (tabela 4.5) — bez przypadków limitera
+ * Moduł uwierzytelniania (tabela 4.1) — bez przypadków limitera
  * ══════════════════════════════════════════════════════════════════════════ */
 
 let adminToken = null;
@@ -209,7 +209,7 @@ async function testAuth() {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
- * Moduł PropShare (tabela 4.6)
+ * Moduł PropShare (podrozdział 4.1.2, rysunek 4.2)
  * ══════════════════════════════════════════════════════════════════════════ */
 
 async function testPropShare() {
@@ -366,7 +366,7 @@ async function testPropShare() {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
- * Scenariusze bezpieczeństwa (tabela 4.10)
+ * Scenariusze bezpieczeństwa (tabela 4.5)
  * ══════════════════════════════════════════════════════════════════════════ */
 
 async function testSecurity(page) {
